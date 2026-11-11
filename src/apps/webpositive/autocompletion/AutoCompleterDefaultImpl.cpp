@@ -184,7 +184,7 @@ BDefaultCompletionStyle::EditViewStateChanged(bool updateChoices)
 	Select(-1);
 	// show a single choice only if it doesn't match the pattern exactly:
 	if (fChoiceModel->CountChoices() > 1 || (fChoiceModel->CountChoices() == 1
-			&& pattern.ICompare(fChoiceModel->ChoiceAt(0)->Text())) != 0) {
+			&& pattern.ICompare(fChoiceModel->ChoiceAt(0)->Text()) != 0)) {
 		fChoiceView->ShowChoices(this);
 		fChoiceView->SelectChoiceAt(fSelectedIndex);
 	} else

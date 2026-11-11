@@ -216,6 +216,8 @@ CredentialsStorage::_LoadSettings()
 void
 CredentialsStorage::_SaveSettings() const
 {
+	BAutolock _(const_cast<CredentialsStorage*>(this));
+
 	BFile settingsFile;
 	if (_OpenSettingsFile(settingsFile,
 			B_CREATE_FILE | B_ERASE_FILE | B_WRITE_ONLY)) {

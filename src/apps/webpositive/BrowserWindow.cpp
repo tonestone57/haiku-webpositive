@@ -1543,9 +1543,9 @@ BrowserWindow::LoadNegotiating(const BString& url, BWebView* view)
 		if (userData != NULL && userData->URLInputContents().Length() == 0) {
 			userData->SetURLInputContents(url);
 		}
+	} else {
+		fURLInputGroup->SetText(url.String());
 	}
-
-	fURLInputGroup->SetText(url.String());
 
 	BString status(B_TRANSLATE("Requesting %url"));
 	status.ReplaceFirst("%url", url);
@@ -1983,9 +1983,11 @@ BrowserWindow::_CreateBookmark(const BPath& path, BString fileName, const BStrin
 				return;
 			} else {
 				// Find a unique name for the bookmark.
+				BString baseFileName(fileName);
 				int32 tries = 1;
 				while (entry.Exists()) {
-					fileName << " " << tries++;
+					fileName.SetToFormat("%s %" B_PRId32, baseFileName.String(),
+						tries++);
 					entryPath = path;
 					status = entryPath.Append(fileName);
 					if (status == B_OK)
@@ -2256,13 +2258,14 @@ addItemToMenuOrSubmenu(BMenu* menu, BMenuItem* newItem)
 	BString baseURLLabel = baseURL(BString(newItem->Label()));
 	for (int32 i = menu->CountItems() - 1; i >= 0; i--) {
 		BMenuItem* item = menu->ItemAt(i);
-		BString label = item->Label();
-		if (label.FindFirst(baseURLLabel) >= 0) {
-			if (item->Submenu()) {
-				// Submenu was already added in previous iteration.
+		if (item->Submenu() != NULL) {
+			if (baseURLLabel == item->Label()) {
 				item->Submenu()->AddItem(newItem);
 				return;
-			} else {
+			}
+		} else {
+			BString itemBaseURL = baseURL(BString(item->Label()));
+			if (baseURLLabel.Length() > 0 && baseURLLabel == itemBaseURL) {
 				menu->RemoveItem(item);
 				BMenu* subMenu = new BMenu(baseURLLabel.String());
 				subMenu->AddItem(item);
@@ -2703,7 +2706,7 @@ BrowserWindow::_SmartURLHandler(const BString& url)
 			// URL.
 			bool isURL = false;
 
-			for (int32 i = 0; i < url.CountChars(); i++) {
+			for (int32 i = 0; i < url.Length(); i++) {
 				if (url[i] == '.')
 					isURL = true;
 				else if (url[i] == '/')
