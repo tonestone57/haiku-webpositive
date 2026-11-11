@@ -143,10 +143,10 @@ This document contains the complete audit and analysis of `src/apps/webpositive`
 | **P0** | TASK-01 | `BrowserWindow.cpp:1548` | Fix active URL bar text overwrite on background tab `LoadNegotiating` (Resolved) |
 | **P0** | TASK-02 | `BrowsingHistory.cpp:67-73` | Fix strict weak ordering violation in `BrowsingHistoryItem::operator<` (Resolved) |
 | **P1** | TASK-03 | `CookieWindow.cpp:214-217` | Fix memory leak of domain item at index 0 in `_BuildDomainList()` (Resolved) |
-| **P1** | TASK-04 | `BrowserWindow.cpp:1986-1996` | Fix bookmark filename collision iteration string concatenation |
-| **P1** | TASK-05 | `BaseURL.cpp:10-16` | Add safety bounds checks for missing `"://"` and trailing `/` in `baseURL()` |
-| **P1** | TASK-06 | `BrowserWindow.cpp:2706-2716` | Replace `url.CountChars()` with `url.Length()` in `_SmartURLHandler()` |
-| **P2** | TASK-07 | `AutoCompleterDefaultImpl.cpp:186` | Fix operator precedence in autocompletion choice visibility check |
+| **P1** | TASK-04 | `BrowserWindow.cpp:1986-1996` | Fix bookmark filename collision iteration string concatenation (Resolved) |
+| **P1** | TASK-05 | `BaseURL.cpp:10-16` | Add safety bounds checks for missing `"://"` and trailing `/` in `baseURL()` (Resolved) |
+| **P1** | TASK-06 | `BrowserWindow.cpp:2706-2716` | Replace `url.CountChars()` with `url.Length()` in `_SmartURLHandler()` (Resolved) |
+| **P2** | TASK-07 | `AutoCompleterDefaultImpl.cpp:186` | Fix operator precedence in autocompletion choice visibility check (Resolved) |
 | **P2** | TASK-08 | `BrowserApp.cpp:452-470` | Cleanly terminate auxiliary windows (`fDownloadWindow`, `fSettingsWindow`, etc.) on exit |
 | **P2** | TASK-09 | `CredentialsStorage.cpp:219` | Add locker protection in `CredentialsStorage::_SaveSettings()` |
 | **P3** | TASK-10 | `BrowserWindow.cpp:2260` | Replace `FindFirst` with prefix match in `addItemToMenuOrSubmenu` |

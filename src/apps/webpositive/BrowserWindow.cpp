@@ -1983,9 +1983,11 @@ BrowserWindow::_CreateBookmark(const BPath& path, BString fileName, const BStrin
 				return;
 			} else {
 				// Find a unique name for the bookmark.
+				BString baseFileName(fileName);
 				int32 tries = 1;
 				while (entry.Exists()) {
-					fileName << " " << tries++;
+					fileName.SetToFormat("%s %" B_PRId32, baseFileName.String(),
+						tries++);
 					entryPath = path;
 					status = entryPath.Append(fileName);
 					if (status == B_OK)
@@ -2703,7 +2705,7 @@ BrowserWindow::_SmartURLHandler(const BString& url)
 			// URL.
 			bool isURL = false;
 
-			for (int32 i = 0; i < url.CountChars(); i++) {
+			for (int32 i = 0; i < url.Length(); i++) {
 				if (url[i] == '.')
 					isURL = true;
 				else if (url[i] == '/')
