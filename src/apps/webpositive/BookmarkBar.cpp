@@ -249,17 +249,6 @@ BookmarkBar::MessageReceived(BMessage* message)
 					errorMessage.ReplaceFirst("%path%", path.Path());
 					BAlert* alert = new BAlert("Error", errorMessage.String(), B_TRANSLATE("OK"));
 					alert->Go();
-					break;
-				}
-
-				// Remove the item from the bookmark bar
-				if (!RemoveItem(fSelectedItemIndex)) {
-					// handle error case if necessary
-					BString errorMessage = B_TRANSLATE("Failed to remove bookmark '%leaf%' "
-							"from boookmark bar.");
-					errorMessage.ReplaceFirst("%leaf%", path.Leaf());
-					BAlert* alert = new BAlert("Error", errorMessage.String(), B_TRANSLATE("OK"));
-					alert->Go();
 				}
 			}
 			break;

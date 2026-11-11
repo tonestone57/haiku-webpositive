@@ -591,7 +591,8 @@ URLInputGroup::URLInputGroup(BMessage* goMessage)
 	:
 	BGroupView(B_HORIZONTAL, 0.0),
 	fWindowActive(false),
-	fURLLocked(false)
+	fURLLocked(false),
+	fInvalid(false)
 {
 	GroupLayout()->SetInsets(2, 0, 0, 0);
 	GroupLayout()->SetSpacing(-2);
