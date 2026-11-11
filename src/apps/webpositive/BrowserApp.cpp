@@ -452,19 +452,19 @@ BrowserApp::QuitRequested()
 	if (fDownloadWindow->Lock()) {
 		fSettings->SetValue("downloads window frame", fDownloadWindow->Frame());
 		fSettings->SetValue("show downloads", !fDownloadWindow->IsHidden());
-		fDownloadWindow->Unlock();
+		fDownloadWindow->Quit();
 	}
 	if (fSettingsWindow->Lock()) {
 		fSettings->SetValue("settings window frame", fSettingsWindow->Frame());
-		fSettingsWindow->Unlock();
+		fSettingsWindow->Quit();
 	}
 	if (fConsoleWindow->Lock()) {
 		fSettings->SetValue("console window frame", fConsoleWindow->Frame());
-		fConsoleWindow->Unlock();
+		fConsoleWindow->Quit();
 	}
 	if (fCookieWindow->Lock()) {
 		fSettings->SetValue("cookie window frame", fCookieWindow->Frame());
-		fCookieWindow->Unlock();
+		fCookieWindow->Quit();
 	}
 
 	BMessage cookieArchive;

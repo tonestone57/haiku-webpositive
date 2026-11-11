@@ -646,7 +646,7 @@ WebTabView::_DrawCloseButton(BView* owner, BRect& frame,
 	else
 		tint = 0.50;
 
-	float isFront = ContainerView()->SelectedTab() == static_cast<TabView*>(this);
+	bool isFront = ContainerView()->SelectedTab() == static_cast<TabView*>(this);
 	
 	if (base.IsLight()){
 		if (!isFront) {

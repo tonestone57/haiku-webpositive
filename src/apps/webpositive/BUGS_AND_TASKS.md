@@ -147,7 +147,7 @@ This document contains the complete audit and analysis of `src/apps/webpositive`
 | **P1** | TASK-05 | `BaseURL.cpp:10-16` | Add safety bounds checks for missing `"://"` and trailing `/` in `baseURL()` (Resolved) |
 | **P1** | TASK-06 | `BrowserWindow.cpp:2706-2716` | Replace `url.CountChars()` with `url.Length()` in `_SmartURLHandler()` (Resolved) |
 | **P2** | TASK-07 | `AutoCompleterDefaultImpl.cpp:186` | Fix operator precedence in autocompletion choice visibility check (Resolved) |
-| **P2** | TASK-08 | `BrowserApp.cpp:452-470` | Cleanly terminate auxiliary windows (`fDownloadWindow`, `fSettingsWindow`, etc.) on exit |
-| **P2** | TASK-09 | `CredentialsStorage.cpp:219` | Add locker protection in `CredentialsStorage::_SaveSettings()` |
-| **P3** | TASK-10 | `BrowserWindow.cpp:2260` | Replace `FindFirst` with prefix match in `addItemToMenuOrSubmenu` |
-| **P3** | TASK-11 | `TabManager.cpp:605, 649` | Avoid redundant tooltip updates on tab mouse move; fix `bool isFront` type |
+| **P2** | TASK-08 | `BrowserApp.cpp:452-470` | Cleanly terminate auxiliary windows (`fDownloadWindow`, `fSettingsWindow`, etc.) on exit (Resolved) |
+| **P2** | TASK-09 | `CredentialsStorage.cpp:219` | Add locker protection in `CredentialsStorage::_SaveSettings()` (Resolved) |
+| **P3** | TASK-10 | `BrowserWindow.cpp:2260` | Replace `FindFirst` with prefix match in `addItemToMenuOrSubmenu` (Resolved) |
+| **P3** | TASK-11 | `TabManager.cpp:605, 649` | Avoid redundant tooltip updates on tab mouse move; fix `bool isFront` type (Resolved) |

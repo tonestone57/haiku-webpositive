@@ -2258,13 +2258,14 @@ addItemToMenuOrSubmenu(BMenu* menu, BMenuItem* newItem)
 	BString baseURLLabel = baseURL(BString(newItem->Label()));
 	for (int32 i = menu->CountItems() - 1; i >= 0; i--) {
 		BMenuItem* item = menu->ItemAt(i);
-		BString label = item->Label();
-		if (label.FindFirst(baseURLLabel) >= 0) {
-			if (item->Submenu()) {
-				// Submenu was already added in previous iteration.
+		if (item->Submenu() != NULL) {
+			if (baseURLLabel == item->Label()) {
 				item->Submenu()->AddItem(newItem);
 				return;
-			} else {
+			}
+		} else {
+			BString itemBaseURL = baseURL(BString(item->Label()));
+			if (baseURLLabel.Length() > 0 && baseURLLabel == itemBaseURL) {
 				menu->RemoveItem(item);
 				BMenu* subMenu = new BMenu(baseURLLabel.String());
 				subMenu->AddItem(item);
