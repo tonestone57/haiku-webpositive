@@ -1543,9 +1543,9 @@ BrowserWindow::LoadNegotiating(const BString& url, BWebView* view)
 		if (userData != NULL && userData->URLInputContents().Length() == 0) {
 			userData->SetURLInputContents(url);
 		}
+	} else {
+		fURLInputGroup->SetText(url.String());
 	}
-
-	fURLInputGroup->SetText(url.String());
 
 	BString status(B_TRANSLATE("Requesting %url"));
 	status.ReplaceFirst("%url", url);

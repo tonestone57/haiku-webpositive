@@ -140,7 +140,7 @@ This document contains the complete audit and analysis of `src/apps/webpositive`
 
 | Priority | ID | Target File | Task Description |
 | :--- | :--- | :--- | :--- |
-| **P0** | TASK-01 | `BrowserWindow.cpp:1548` | Fix active URL bar text overwrite on background tab `LoadNegotiating` |
+| **P0** | TASK-01 | `BrowserWindow.cpp:1548` | Fix active URL bar text overwrite on background tab `LoadNegotiating` (Resolved) |
 | **P0** | TASK-02 | `BrowsingHistory.cpp:67-73` | Fix strict weak ordering violation in `BrowsingHistoryItem::operator<` |
 | **P1** | TASK-03 | `CookieWindow.cpp:214-217` | Fix memory leak of domain item at index 0 in `_BuildDomainList()` |
 | **P1** | TASK-04 | `BrowserWindow.cpp:1986-1996` | Fix bookmark filename collision iteration string concatenation |
