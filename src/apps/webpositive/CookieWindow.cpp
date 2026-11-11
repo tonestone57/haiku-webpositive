@@ -211,7 +211,7 @@ void
 CookieWindow::_BuildDomainList()
 {
 	// Empty the domain list (TODO should we do this when hiding instead?)
-	for (int i = fDomains->FullListCountItems() - 1; i >= 1; i--) {
+	for (int i = fDomains->FullListCountItems() - 1; i >= 0; i--) {
 		delete fDomains->FullListItemAt(i);
 	}
 	fDomains->MakeEmpty();
